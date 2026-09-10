@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="sidebar">
+    <h1>⚽ Football Manager</h1>
+
+    <button onclick="showPage('dashboard')">🏠 Dashboard</button>
+    <button onclick="showPage('players')">👥 Zawodnicy</button>
+    <button onclick="showPage('matches')">📅 Terminarz</button>
+    <button onclick="showPage('scorers')">🏆 Strzelcy</button>
+</div>
+
+<main>
+
+    <section id="dashboard" class="page active">
+
+        <h2>Dashboard</h2>
+
+        <div class="hero">
+            <h3>System zarządzania drużyną piłkarską ⚽</h3>
+            <p>
+                Zarządzaj zawodnikami, statystykami i terminarzem
+                swojej drużyny.
+            </p>
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <span>Zawodnicy</span>
+                <strong id="playersCount">0</strong>
+            </div>
+
+            <div class="card">
+                <span>Gole</span>
+                <strong id="goalsCount">0</strong>
+            </div>
+
+            <div class="card">
+                <span>Asysty</span>
+                <strong id="assistsCount">0</strong>
+            </div>
+
+            <div class="card">
+                <span>Mecze</span>
+                <strong id="matchesCount">0</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="players" class="page">
+
+        <div class="title-row">
+            <h2>Zawodnicy</h2>
+            <button class="green" onclick="openPlayerForm()">
+                + Dodaj zawodnika
+            </button>
+        </div>
+
+        <div id="playerForm" class="form-box hidden">
+
+            <h3>Dodaj zawodnika</h3>
+
+            <input id="playerName" placeholder="Imię i nazwisko">
+            <input id="playerNumber" type="number" placeholder="Numer">
+
+            <select id="playerPosition">
+                <option value="">Pozycja</option>
+                <option>Bramkarz</option>
+                <option>Obrońca</option>
+                <option>Pomocnik</option>
+                <option>Napastnik</option>
+            </select>
+
+            <input id="playerGoals" type="number" placeholder="Gole" value="0">
+            <input id="playerAssists" type="number" placeholder="Asysty" value="0">
+            <input id="playerAppearances" type="number" placeholder="Mecze" value="0">
+
+            <button class="green" onclick="addPlayer()">
+                Zapisz
+            </button>
+
+            <button onclick="closePlayerForm()">
+                Anuluj
+            </button>
+
+        </div>
+
+        <div class="table-box">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Numer</th>
+                        <th>Zawodnik</th>
+                        <th>Pozycja</th>
+                        <th>Mecze</th>
+                        <th>Gole</th>
+                        <th>Asysty</th>
+                        <th>Akcje</th>
+                    </tr>
+                </thead>
+
+                <tbody id="playersTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+    <section id="matches" class="page">
+
+        <div class="title-row">
+            <h2>Terminarz meczów</h2>
+
+            <button class="green" onclick="openMatchForm()">
+                + Dodaj mecz
+            </button>
+        </div>
+
+        <div id="matchForm" class="form-box hidden">
+
+            <h3>Dodaj mecz</h3>
+
+            <input id="opponent" placeholder="Przeciwnik">
+            <input id="matchDate" type="date">
+            <input id="matchTime" type="time">
+            <input id="matchLocation" placeholder="Miejsce">
+            <input id="matchResult" placeholder="Wynik" value="-">
+
+            <button class="green" onclick="addMatch()">
+                Zapisz
+            </button>
+
+            <button onclick="closeMatchForm()">
+                Anuluj
+            </button>
+
+        </div>
+
+        <div id="matchesList"></div>
+
+    </section>
+
+    <section id="scorers" class="page">
+
+        <h2>Tabela strzelców</h2>
+
+        <div class="table-box">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Zawodnik</th>
+                        <th>Pozycja</th>
+                        <th>Mecze</th>
+                        <th>Asysty</th>
+                        <th>⚽ Gole</th>
+                    </tr>
+                </thead>
+
+                <tbody id="scorersTable"></tbody>
+
+            </table>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
