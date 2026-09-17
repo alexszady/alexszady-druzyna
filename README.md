@@ -1,59 +1,147 @@
-W projekcie stworzylem:
-1. liste zawodnikow ktora:
-2. -wyswietla wszystkich zawodnikow druzyny
-3. -podstawowe informacje o zawodnikach
-4. -przypisanie numeru oraz pozycji
-5. 2. Dodawaqnie zawodnikow
-  dodawanie nowych zawodników do drużyny
-wprowadzanie podstawowych danych zawodnika
-wybór pozycji na boisku
-Usuwanie zawodników
+# System zarządzania drużyną piłkarską
 
-usuwanie zawodników z systemu
- Pozycje zawodników
+## 1. Opis projektu
 
-Bramkarz
-Obrońca
-Pomocnik
-Napastnik
- Statystyki zawodników
+Projekt przedstawia system przeznaczony do zarządzania informacjami
+o drużynie piłkarskiej.
 
-liczba rozegranych meczów
-liczba zdobytych goli
-liczba asyst
- Terminarz meczów
+System umożliwia przechowywanie, przeglądanie oraz zarządzanie
+informacjami dotyczącymi zawodników i meczów.
 
-lista nadchodzących spotkań
-data i godzina meczu
-przeciwnik
-miejsce rozegrania meczu
-wynik spotkania
- Tabela strzelców
+Głównym celem projektu jest uporządkowanie danych drużyny oraz
+umożliwienie użytkownikom łatwego dostępu do najważniejszych
+informacji.
 
-ranking zawodników według liczby zdobytych goli
-możliwość szybkiego sprawdzenia najlepszego strzelca drużyny
+---
 
-TECHNOLOGIE 
-uzylem do tego 
-HTML5 – struktura aplikacji
-CSS3 – wygląd i responsywność
-JavaScript – logika aplikacji i obsługa danych
-SQLite / MySQL – przechowywanie danych
-Cel projektu
-Celem projektu jest stworzenie prostego systemu pozwalającego na wygodne zarządzanie drużyną piłkarską oraz przechowywanie najważniejszych informacji dotyczących zawodników i rozegranych spotkań.
+## 2. Główne funkcjonalności
 
-Projekt może być wykorzystany jako aplikacja dla amatorskiej drużyny piłkarskiej, projekt edukacyjny lub baza do stworzenia bardziej rozbudowanego systemu zarządzania klubem.
-Możliwy rozwój
-W przyszłości aplikacja może zostać rozbudowana o:
+System umożliwia:
 
- system logowania użytkowników,
- profile zawodników ze zdjęciami,
- obsługę wielu drużyn,
- wykresy statystyk,
- kartki żółte i czerwone,
- historię transferów,
- raporty z meczów,
- powiadomienia o nadchodzących spotkaniach,
- pełną wersję responsywną na urządzenia mobilne,
- zarządzanie stadionami i miejscami rozgrywania spotkań
- ALEX SZADY
+- wyświetlanie listy zawodników,
+- dodawanie zawodników,
+- edytowanie danych zawodników,
+- usuwanie zawodników,
+- wyświetlanie statystyk zawodników,
+- wyświetlanie terminarza meczów,
+- wyświetlanie tabeli strzelców,
+- zarządzanie informacjami o meczach.
+
+---
+
+## 3. Aktorzy systemu
+
+### Użytkownik
+
+Użytkownik może przeglądać informacje dotyczące drużyny.
+
+Ma możliwość:
+
+- wyświetlania zawodników,
+- wyświetlania statystyk,
+- przeglądania terminarza,
+- przeglądania tabeli strzelców.
+
+### Administrator / Trener
+
+Administrator lub trener odpowiada za zarządzanie danymi drużyny.
+
+Ma możliwość:
+
+- dodawania zawodników,
+- edytowania zawodników,
+- usuwania zawodników,
+- dodawania meczów,
+- edytowania meczów,
+- usuwania meczów.
+
+---
+
+## 4. Dokumentacja projektu
+
+### Aktorzy
+
+Opis aktorów systemu:
+
+[Dokumentacja aktorów](docs/aktorzy.md)
+
+### Wymagania
+
+Lista wymagań funkcjonalnych i niefunkcjonalnych:
+
+[Wymagania systemu](docs/wymagania.md)
+
+---
+
+## 5. Diagramy
+
+Diagramy systemu znajdują się w folderze:
+
+`diagramy/`
+
+### Diagram przypadków użycia
+
+[Diagram przypadków użycia](diagramy/diagram-przypadkow-uzycia.md)
+
+### Rozszerzony diagram przypadków użycia
+
+[Rozszerzony diagram przypadków użycia](diagramy/diagram-przypadkow-uzycia-rozszerzony.md)
+
+### Diagram aktywności
+
+[Diagram aktywności](diagramy/diagram-aktywnosci.md)
+
+### Diagram sekwencji
+
+[Diagram sekwencji](diagramy/diagram-sekwencji.md)
+
+### Diagram klas
+
+[Diagram klas](diagramy/diagram-klas.md)
+
+---
+
+## 6. Przypadki użycia
+
+Szczegółowe opisy przypadków użycia znajdują się w folderze:
+
+`docs/przypadki-uzycia/`
+
+Lista przypadków użycia:
+
+1. [PU-01 – Wyświetl zawodników](docs/przypadki-uzycia/PU-01-wyswietl-zawodnikow.md)
+2. [PU-02 – Dodaj zawodnika](docs/przypadki-uzycia/PU-02-dodaj-zawodnika.md)
+3. [PU-03 – Edytuj zawodnika](docs/przypadki-uzycia/PU-03-edytuj-zawodnika.md)
+4. [PU-04 – Usuń zawodnika](docs/przypadki-uzycia/PU-04-usun-zawodnika.md)
+5. [PU-05 – Wyświetl statystyki](docs/przypadki-uzycia/PU-05-wyswietl-statystyki.md)
+6. [PU-06 – Wyświetl terminarz](docs/przypadki-uzycia/PU-06-wyswietl-terminarz.md)
+7. [PU-07 – Wyświetl tabelę strzelców](docs/przypadki-uzycia/PU-07-wyswietl-tabele-strzelcow.md)
+
+---
+
+## 7. Struktura projektu
+
+```text
+druzyna-obsluga/
+│
+├── README.md
+│
+├── diagramy/
+│   ├── diagram-przypadkow-uzycia.md
+│   ├── diagram-przypadkow-uzycia-rozszerzony.md
+│   ├── diagram-aktywnosci.md
+│   ├── diagram-sekwencji.md
+│   └── diagram-klas.md
+│
+└── docs/
+    ├── aktorzy.md
+    ├── wymagania.md
+    │
+    └── przypadki-uzycia/
+        ├── PU-01-wyswietl-zawodnikow.md
+        ├── PU-02-dodaj-zawodnika.md
+        ├── PU-03-edytuj-zawodnika.md
+        ├── PU-04-usun-zawodnika.md
+        ├── PU-05-wyswietl-statystyki.md
+        ├── PU-06-wyswietl-terminarz.md
+        └── PU-07-wyswietl-tabele-strzelcow.md
