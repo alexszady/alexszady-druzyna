@@ -1,0 +1,50 @@
+@startuml
+title Diagram aktywności - Zarządzanie zawodnikiem
+
+start
+
+:Uruchomienie systemu;
+:Wyświetlenie menu głównego;
+
+:Wybranie opcji "Zawodnicy";
+:Wyświetlenie listy zawodników;
+
+if (Wybór operacji?) then (Dodaj)
+
+    :Wprowadzenie danych zawodnika;
+    :Sprawdzenie danych;
+
+    if (Dane poprawne?) then (Tak)
+        :Dodanie zawodnika;
+        :Wyświetlenie komunikatu;
+    else (Nie)
+        :Wyświetlenie błędu;
+        :Poprawienie danych;
+    endif
+
+elseif (Edytuj)
+
+    :Wybór zawodnika;
+    :Edycja danych zawodnika;
+    :Zapisanie zmian;
+    :Wyświetlenie komunikatu;
+
+elseif (Usuń)
+
+    :Wybór zawodnika;
+
+    if (Potwierdzenie usunięcia?) then (Tak)
+        :Usunięcie zawodnika;
+        :Wyświetlenie komunikatu;
+    else (Nie)
+        :Anulowanie operacji;
+    endif
+
+else (Powrót)
+
+    :Powrót do menu głównego;
+
+endif
+
+stop
+@enduml
