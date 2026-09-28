@@ -1,0 +1,60 @@
+flowchart TD
+    START((Start)) --> A[Uruchomienie systemu]
+    A --> B[Wyświetlenie menu głównego]
+    B --> C{Wybór operacji}
+
+    C -->|Zawodnicy| D[Wyświetlenie listy zawodników]
+    D --> E{Rodzaj operacji}
+
+    E -->|Wyświetl| F[Wyświetlenie danych zawodników]
+    F --> D
+
+    E -->|Dodaj| G[Wprowadzenie danych zawodnika]
+    G --> H{Dane poprawne?}
+    H -->|Nie| G
+    H -->|Tak| I[Zapisanie zawodnika]
+    I --> D
+
+    E -->|Edytuj| J[Wybór zawodnika]
+    J --> K[Zmiana danych zawodnika]
+    K --> L{Dane poprawne?}
+    L -->|Nie| K
+    L -->|Tak| M[Zapisanie zmian]
+    M --> D
+
+    E -->|Usuń| N[Wybór zawodnika]
+    N --> O{Potwierdzenie usunięcia}
+    O -->|Nie| D
+    O -->|Tak| P[Usunięcie zawodnika]
+    P --> D
+
+    E -->|Powrót| B
+
+    C -->|Statystyki| Q[Wyświetlenie statystyk zawodników]
+    Q --> B
+
+    C -->|Terminarz| R[Wyświetlenie terminarza meczów]
+    R --> S{Operacja na meczu}
+
+    S -->|Wyświetl| T[Wyświetlenie informacji o meczu]
+    T --> R
+
+    S -->|Dodaj| U[Wprowadzenie danych meczu]
+    U --> V[Zapisanie meczu]
+    V --> R
+
+    S -->|Edytuj| W[Wybór meczu]
+    W --> X[Zmiana danych meczu]
+    X --> Y[Zapisanie zmian]
+    Y --> R
+
+    S -->|Usuń| Z[Wybór meczu]
+    Z --> AA{Potwierdzenie usunięcia}
+    AA -->|Nie| R
+    AA -->|Tak| AB[Usunięcie meczu]
+    AB --> R
+
+    C -->|Tabela strzelców| AC[Wyświetlenie tabeli strzelców]
+    AC --> B
+
+    C -->|Wyjście| END((Koniec))
