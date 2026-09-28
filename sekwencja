@@ -1,0 +1,36 @@
+@startuml
+title Diagram sekwencji - Dodawanie zawodnika
+
+actor "Administrator / Trener" as AT
+participant "System" as S
+database "Baza danych" as DB
+
+AT -> S : Wybiera "Zawodnicy"
+
+S -> DB : Pobiera listę zawodników
+DB --> S : Lista zawodników
+
+S --> AT : Wyświetla listę zawodników
+
+AT -> S : Wybiera "Dodaj zawodnika"
+
+S --> AT : Wyświetla formularz
+
+AT -> S : Wprowadza dane zawodnika
+
+S -> S : Sprawdza poprawność danych
+
+alt Dane poprawne
+
+    S -> DB : Dodaje zawodnika
+    DB --> S : Potwierdzenie zapisu
+
+    S --> AT : Wyświetla "Zawodnik dodany"
+
+else Dane niepoprawne
+
+    S --> AT : Wyświetla komunikat o błędzie
+
+end
+
+@enduml
