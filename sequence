@@ -1,0 +1,30 @@
+sequenceDiagram
+    actor T as Administrator / Trener
+    participant UI as Interfejs użytkownika
+    participant S as System
+    participant B as Baza danych
+
+    T->>UI: Wybiera „Zawodnicy”
+    UI->>S: Pobierz listę zawodników
+    S->>B: SELECT zawodnicy
+    B-->>S: Lista zawodników
+    S-->>UI: Wyświetl listę zawodników
+
+    T->>UI: Wybiera „Dodaj zawodnika”
+    UI->>S: Otwórz formularz dodawania
+    S-->>UI: Wyświetl formularz
+
+    T->>UI: Wprowadza dane zawodnika
+    UI->>S: Wyślij dane zawodnika
+
+    S->>S: Walidacja danych
+
+    alt Dane są niepoprawne
+        S-->>UI: Wyświetl komunikat o błędzie
+        UI-->>T: Popraw dane
+    else Dane są poprawne
+        S->>B: INSERT zawodnik
+        B-->>S: Potwierdzenie zapisu
+        S-->>UI: Zawodnik został dodany
+        UI-->>T: Wyświetl zaktualizowaną listę
+    end
